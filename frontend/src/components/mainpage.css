@@ -1,0 +1,88 @@
+.homepage{
+    background-color:rgb(47, 40, 61)
+}
+
+
+.homepage .title{
+    position: absolute;
+    top:150px;
+    left:200px;
+    color:white;
+    font-size:50pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+.homepage .info{
+    position:absolute;
+    top:300px;
+    left:200px;
+    font-size:18pt;
+    color:lightgray;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+
+.homepage .logtitle{
+    position:absolute;
+    top:460px;
+    left:200px;
+    font-size:18pt;
+    color:white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+.homepage .login{
+    position:absolute;
+    top:650px;
+    left:200px;
+    width:170px;
+    height:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    font-size:15pt;
+    border-style:none;
+    box-shadow: gray;
+
+}
+.homepage .signin{
+    position:absolute;
+    top:650px;
+    left:400px;
+    width:170px;
+    height:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    font-size:15pt;
+    border-style:none;
+    box-shadow: gray;
+}
+
+.homepage .id{
+    position:absolute;
+    top:520px;
+    left:200px;
+    width:370px;
+    height:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    font-size:15pt;
+    border-style:none;
+    box-shadow: gray;
+
+}
+.homepage .pwd{
+    position:absolute;
+    top:580px;
+    left:200px;
+    width:370px;
+    height:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    font-size:15pt;
+    border-style:none;
+    box-shadow: gray;
+
+}

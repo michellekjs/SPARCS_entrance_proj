@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+
+.navbar-brand{
+  font-size:20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:white;
+  text-decoration-line:none;
+  font-weight:bolder;
+}
+
+.mainimage{
+  height:1000px;
+  width:1000px;
+  position: relative;
+  left:700px;
+
+}
