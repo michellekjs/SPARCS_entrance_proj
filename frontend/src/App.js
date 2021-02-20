@@ -12,9 +12,11 @@ function App() {
     <div className="mainpage">
     <Router>
       <nav className="navbar navbar-expand-sm navbar-custom">
-        {/*
+        
+      {/*
         <Link to="/" className="navbar-brand">Project Mate</Link>
-        */}
+      */}
+        
         <ul className="navbar-nav ml-auto">
           
         </ul>

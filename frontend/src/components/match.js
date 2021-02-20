@@ -19,6 +19,10 @@ export default class Match extends Component {
   render(){
     return (
         <div className="match" > 
+            <div className="classtitle">
+                CS480
+            </div>
+            <button className="memberbutton"> Add as member</button>
             <div className="members">
                 <text> list of members of this class in this area</text>
             </div>

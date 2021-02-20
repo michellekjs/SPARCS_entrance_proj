@@ -1,0 +1,66 @@
+.page{
+    margin-left:100px;
+}
+
+.searchclass{
+    position:absolute;
+    top:100px;
+    left:100px;
+}
+
+.searchclass .title{
+    position: absolute;
+}
+
+.searchclass .code{
+    position:absolute;
+    top:30px;
+}
+
+.searchclass .pwd{
+    position: absolute;
+    top:80px;
+}
+
+.searchclass .searchbutton{
+    position:absolute;
+    top:180px;
+    left:100px;
+    width:120px;
+}
+
+
+
+.makeclass{
+    position:absolute;
+    top:100px;
+    left:700px;
+}
+
+.makeclass .title{
+    position: absolute;
+}
+
+.makeclass .name{
+    position: absolute;
+    top:30px;
+    width:250px;
+}
+
+.makeclass .password{
+    position: absolute;
+    top:80px;
+}
+
+.makeclass .description{
+    position: absolute;
+    top:130px;
+}
+
+.makeclass .button{
+    position:absolute;
+    top:180px;
+    left:200px;
+    width:120px;
+}
+
