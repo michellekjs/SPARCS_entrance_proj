@@ -7,6 +7,7 @@ const teamRoutes = express.Router();
 const PORT = 4000;
 let User = require('./user');
 let Class = require('./class');
+let Board = require('./board');
 app.use(cors());
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/team', { useNewUrlParser: true ,useUnifiedTopolgy:true});
@@ -58,9 +59,18 @@ teamRoutes.get('/classfind/:classname/:classpwd', function(req,res){
   });
 });
 
-teamRoutes.get('/match/:classname'),function(req,res){
-  console.log(req.params.classname);
-}
+
+
+teamRoutes.route('/addboard').post(function(req, res) {
+  let board = new Board(req.body);
+  board.save()
+      .then(todo => {
+          res.status(200).json({'board': 'board content added successfully'});
+      })
+      .catch(err => {
+          res.status(400).send('adding board content failed');
+      });
+});
 
 
 app.use('/team', teamRoutes);

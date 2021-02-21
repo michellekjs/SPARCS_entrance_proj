@@ -96,7 +96,6 @@ export default class ClassPage extends Component {
             classpwd:this.state.classpwd,
             classdescrip:this.state.classdescrip
         };
-
         
         axios.post("http://localhost:4000/team/class", newClass)
             .then(res=>console.log(res.data))

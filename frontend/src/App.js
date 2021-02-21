@@ -6,6 +6,7 @@ import MainPage from "./components/mainpage.js"
 import SignUp from "./components/signup.js"
 import ClassPage from "./components/class.js"
 import Match from "./components/match.js"
+import BoardPage from "./components/board.js"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route exact path ="/signup" component={SignUp}/>
       <Route exact path = "/classpage" component={ClassPage}/>
       <Route exact path = "/match" component={Match}/>
+      <Route exact path = "/boardpage" component={BoardPage}/>
     </Router>
     </div>
   );

@@ -3,19 +3,33 @@ import "./match.css";
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import {BrouserRouter as Router,Route,Link} from "react-router-dom"
 
 /*this page is for creating or entering rooms*/
 
 console.log("hio");
 
+
+
 export default class Match extends Component {
-    
     constructor(props){
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.state={
+            classname:""
         }
     }
-    
+
+componentDidMount(){
+    this.state.classname=this.props.location.state;
+}
+
+handleClick=e=> {
+    var that = this;
+    this.props.history.push({pathname:'/boardpage',state:this.state.classname})
+}
+
+
   render(){
     return (
         <div className="match" > 
@@ -42,9 +56,14 @@ export default class Match extends Component {
 
             <div className="board">
                 <text>Board</text>
-                <button className="buttonboard">move to board page</button>
+                
+                <button className="buttonboard" onClick={this.handleClick}>  
+                move board page
+                </button>
                 <br/>
+
                 {this.props.location.state.board}
+                
             </div>
             <div className="matchedpairs">
                 <button className="pairbutton">modal to search and pair up</button>
