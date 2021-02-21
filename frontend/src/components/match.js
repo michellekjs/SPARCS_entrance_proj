@@ -15,27 +15,42 @@ export default class Match extends Component {
         this.state={
         }
     }
-
+    
   render(){
     return (
         <div className="match" > 
-            <div className="classtitle">
-                CS480
+            <div className="classtitle" style={{fontSize:'26pt'}}>
+                {this.props.location.state.classname}
             </div>
-            <button className="memberbutton"> Add as member</button>
-            <div className="members">
-                <text> list of members of this class in this area</text>
+            <button className="memberbutton">
+                    Add as  a member
+            </button>
+            <div className='block'>
+                <div className="classdescription">
+                    <text className="description" style={{fontSize:'14pt'}}> Class Details</text>
+                    <br/>
+                    {this.props.location.state.classdescrip}
+                </div>
+                <div className="members">
+                    <text className="list" style={{fontSize:'14pt'}}> 
+                    List of Members <br/>
+                    {this.props.location.state.classmembers}
+                    </text>
+                   
+                </div>
             </div>
-            <div className="matched pairs">
-                <text> list of paired members of the class</text>
-            </div>
+
             <div className="board">
-                <button>move to board page</button>
-                <text>board content here</text>
+                <text>Board</text>
+                <button className="buttonboard">move to board page</button>
+                <br/>
+                {this.props.location.state.board}
             </div>
-            <div className="pairbutton">
-                <button>modal to search and pair up</button>
+            <div className="matchedpairs">
+                <button className="pairbutton">modal to search and pair up</button>
+                {this.props.location.state.pairs}
             </div>
+            
         </div>
 
     );

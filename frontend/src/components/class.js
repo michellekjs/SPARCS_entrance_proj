@@ -23,7 +23,7 @@ export default class ClassPage extends Component {
             checkname:"",
             checkpwd:"",
             classcode:"",
-            password:""
+            password:"",
         };
     }
 
@@ -72,10 +72,14 @@ export default class ClassPage extends Component {
 
     onSubmit2(e) {
         e.preventDefault();
-        console.log("submit2 in action")
-        axios.get("http://locahost:4000/team/classfind/"+this.state.classcode+"/"+this.state.password)
-            .then(res=>console.log(res.data))
-            .catch(err=>console.log(err));
+        console.log("submit2 in action");
+        var that = this;
+        axios.get("http://localhost:4000/team/classfind/"+this.state.classcode+"/"+this.state.password)
+        .then(function(res){
+            console.log(res);
+            if (res.data.toString()=="fail"){ console.log("there is no such room")}
+            else{that.props.history.push({pathname:'/match/', state:res.data})}
+        })
 
         this.setState({
             classcode:"",

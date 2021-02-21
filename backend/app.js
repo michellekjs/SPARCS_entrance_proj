@@ -46,17 +46,21 @@ teamRoutes.route('/class').post(function(req,res,next){
 
 teamRoutes.get('/classfind/:classname/:classpwd', function(req,res){
   console.log("does it enter here?");
-  Class.findOne({'classname':req.params.classname.toString(), 'classpwd':req.params.classpwd.toString() }, function(err,res) {
-    if(res==null){
+  Class.findOne({'classname':req.params.classname.toString(), 'classpwd':req.params.classpwd.toString() }, function(err,result) {
+    if(result==null){
       console.log("fail");
+      res.send("fail");
     }
     else{
-      console.log(res);
-      res.send();
+      console.log(result);
+      res.send(result);
     }
   });
 });
 
+teamRoutes.get('/match/:classname'),function(req,res){
+  console.log(req.params.classname);
+}
 
 
 app.use('/team', teamRoutes);

@@ -1,3 +1,56 @@
 .match{
     margin-left:300px;
 }
+
+.match .memberbutton{
+    position:absolute; 
+    left: 1100px; 
+    top: 20px; 
+    border-style:none;
+    border-radius: 10px;
+    height:40px;
+    width:200px;
+}
+
+.match .block .members{
+    position: absolute;
+    top:100px;
+    left:10px;
+}
+.match .block .classdescription {
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+
+.match .matchedpairs{
+    position:absolute;
+    left:300px;
+    top: 400px;
+
+}
+
+
+.match .board{
+    position:absolute;
+    left:800px;
+    top: 400px;
+}
+
+.match .board .buttonboard{
+    position: absolute;
+    left:300px; 
+    border-style:none;
+    border-radius: 10px;
+    height:40px;
+    width:200px;
+}
+
+.match .block{
+    position: absolute;
+    top:130px;
+    left:300px;
+    width: 1000px;
+    height:200px;
+    background-color: rgb(197, 184, 206);
+}
