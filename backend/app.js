@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken')
 let User = require('./user');
 let Class = require('./class');
 let Board = require('./board');
+let Confirm  = require('./confirm');
 app.use(cors());
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/team', { useNewUrlParser: true ,useUnifiedTopolgy:true});
@@ -21,7 +22,7 @@ connection.once('open', function() {
 teamRoutes.route('/users').post(function(req,res,next){
   console.log(req.body);
 
-  let user = new User({'name':req.body.name, 'id':req.body.id, 'pwd':req.body.pwd});
+  let user = new User({'name':req.body.name, 'id':req.body.id, 'pwd':req.body.pwd, 'permission':'student'});
   user.save()
         .then(user => {
             res.status(200).json({'user': 'user added successfully'});
@@ -40,7 +41,8 @@ teamRoutes.route('/login').post(function(req,res,next){
     }
     else{
       var token = jwt.sign({
-        id:req.body.id
+        id:req.body.id,
+        permission:result.permission
       }, 'shh');
       res.json({'token': token})
     }
@@ -98,6 +100,32 @@ teamRoutes.route('/newboard/:classname').post(function(req, res) {
   })
 });
 
+teamRoutes.route('/confirm').post(function(req,res){
+  let newconfirm = Confirm(req.body);
+  newconfirm.save();
+})
+
+teamRoutes.route('/getpermission').get(function(req,res){
+  console.log("enter permission")
+  Confirm.find({},function(err,result){
+    res.send(result);
+    console.log(result);
+  })
+})
+
+teamRoutes.route('/changepermission/:username').get(function(req,res){
+  console.log("enter permission")
+  Confirm.findOneAndUpdate({'username':req.params.username},{$set:{'status':'done'}}, function(err,result){
+    res.send(result);
+    console.log("the result");
+    console.log(result);
+  })
+ User.findOneAndUpdate({'name':req.params.username},{$set:{'permission':'prof'}}, function(err,result){
+    console.log("the result2");
+    console.log(result);
+  })
+
+})
 
 
 app.use('/team', teamRoutes);

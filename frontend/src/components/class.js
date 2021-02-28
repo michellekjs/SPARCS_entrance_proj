@@ -15,6 +15,8 @@ export default class ClassPage extends Component {
         this.handlePwdCheck = this.handlePwdCheck.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onSubmit2 = this.onSubmit2.bind(this);
+        this.onButtonClick = this.onButtonClick.bind(this);
+
 
 
         this.state = {
@@ -25,12 +27,23 @@ export default class ClassPage extends Component {
             checkpwd:"",
             classcode:"",
             password:"",
+            visibility1:"",
+            visibility2:""
         };
     }
 
     componentDidMount(){
         if ( 'token' in localStorage){
-            console.log("hi")
+             var token = localStorage.getItem("token");
+            var decoded = jwt_decode(token);
+          console.log(decoded.permission);
+
+            if (decoded.permission == "student"){
+                this.setState({visibility1:"visible", visibility2:"hidden"})
+            }
+            else{
+                this.setState({visibility1:"visible", visibility2:"visible"})
+            }
         }
         else{
             console.log("how dare you")
@@ -73,7 +86,6 @@ export default class ClassPage extends Component {
         })
 
     }
-
     handlePwdCheck = e =>{
         e.preventDefault();
         this.setState({
@@ -119,6 +131,22 @@ export default class ClassPage extends Component {
         })
     }
 
+    onButtonClick = e => {
+
+        var token = localStorage.getItem("token");
+        var decoded = jwt_decode(token);
+        console.log(decoded.id);
+
+        const newConfirm={
+            username: decoded.id,
+            status:"waiting"
+        }
+
+        axios.post("http://localhost:4000/team/confirm",newConfirm)
+        .then(res => console.log(res.data))
+
+    }
+
 
 
 
@@ -129,16 +157,18 @@ export default class ClassPage extends Component {
 
             <div className="box"></div>
             <div className="maintitle"> Classroom </div>
-            <form onSubmit= {this.onSubmit2}>
-                <div className="searchclass"> 
+            <form onSubmit= {this.onSubmit2} >
+                <div className="searchclass" style={{'visibility': this.state.visibility1}}> 
                     <text className="title">Enter Room</text>
                     <input placeholder="class code" value={this.state.classcode} onChange={this.handleClassCode1} className="code"></input>
                     <input placeholder="password" value={this.state.password} onChange={this.handleClassPassword} className="pwd"></input>
                     <button className="searchbutton" >  Search </button>
                 </div>
             </form>
+            <button className="permission" onClick={this.onButtonClick}>Get Permission for establishing rooms</button>
+            {/**/}
 
-            <div className="makeclass">
+            <div className="makeclass" style={{'visibility': this.state.visibility2}}>
                 <form onSubmit = {this.onSubmit}>
                     <text className="title">Create Room</text>
                     <input placeholder="name" value={this.state.classname} onChange={this.handleClassCode} className="name"></input>

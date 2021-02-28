@@ -21,9 +21,10 @@ export default class MainPage extends Component {
   }
 
 onSubmit = e =>{
-  var that = this;
+
   e.preventDefault();
 
+  console.log(this.state.id);
   const UserLogin = {
     id:this.state.id,
     pwd:this.state.pwd
@@ -43,7 +44,14 @@ onSubmit = e =>{
       console.log(decoded);
 
       localStorage.setItem("token",res.data.token);
-      that.props.history.push({pathname:'/classpage'})
+
+      if (decoded.id == "admin"){
+        this.props.history.push({pathname:'/admin'})
+      }
+      else{
+        this.props.history.push({pathname:'/classpage'})
+      }
+      
     }
 })
 
