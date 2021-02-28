@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema =mongoose.Schema;
 
 let Board= new Schema({
-    wriiter:{ type: String,  required: true },
+    writer:{ type: String,  required: true },
     boardtitle:{type:String},
     content: { type: String, unique: true, required: true },
 });

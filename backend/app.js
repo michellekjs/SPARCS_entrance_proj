@@ -5,6 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const teamRoutes = express.Router();
 const PORT = 4000;
+const jwt = require('jsonwebtoken')
 let User = require('./user');
 let Class = require('./class');
 let Board = require('./board');
@@ -30,6 +31,24 @@ teamRoutes.route('/users').post(function(req,res,next){
         });
 })
 
+teamRoutes.route('/login').post(function(req,res,next){
+  console.log(req.body);
+  User.findOne({'id':req.body.id, 'pwd':req.body.pwd}, function(err,result){
+    if (result ==null){
+      console.log("no such user");
+      res.send("fail")
+    }
+    else{
+      var token = jwt.sign({
+        id:req.body.id
+      }, 'shh');
+      res.json({'token': token})
+    }
+  })
+})
+  
+
+
 teamRoutes.route('/class').post(function(req,res,next){
   console.log(req.body);
 
@@ -45,7 +64,7 @@ teamRoutes.route('/class').post(function(req,res,next){
 })
 
 
-teamRoutes.get('/classfind/:classname/:classpwd', function(req,res){
+teamRoutes.route('/classfind/:classname/:classpwd').get( function(req,res){
   console.log("does it enter here?");
   Class.findOne({'classname':req.params.classname.toString(), 'classpwd':req.params.classpwd.toString() }, function(err,result) {
     if(result==null){
@@ -61,16 +80,24 @@ teamRoutes.get('/classfind/:classname/:classpwd', function(req,res){
 
 
 
-teamRoutes.route('/addboard').post(function(req, res) {
-  let board = new Board(req.body);
-  board.save()
-      .then(todo => {
-          res.status(200).json({'board': 'board content added successfully'});
-      })
-      .catch(err => {
-          res.status(400).send('adding board content failed');
-      });
+teamRoutes.route('/newboard/:classname').post(function(req, res) {
+  let newboard = new Board(req.body);
+  console.log(req.body)
+  Class.findOne({'classname':req.params.classname}, function(err,result){
+    if(result==null){
+      console.log("fail");
+    }
+    else{
+      console.log("nmmmmm")
+      console.log(newboard);
+      console.log(result);
+      console.log(result.board);
+      result.board.push(newboard);
+      result.save();
+    }
+  })
 });
+
 
 
 app.use('/team', teamRoutes);

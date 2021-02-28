@@ -3,6 +3,7 @@ import "./board.css";
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 export default class BoardPage extends Component {
@@ -17,29 +18,46 @@ export default class BoardPage extends Component {
     componentDidMount(){
         this.state.classname=this.props.location.state;
         console.log(this.state.classname);
+
+        if ( 'token' in localStorage){
+            console.log("hi")
+        }
+        else{
+            console.log("how dare you")
+            this.props.history.push({pathname:'/'})
+        }
+
+    }
+
+    handleClick = e =>{
+        e.preventDefault();
+        var that = this;
+        this.props.history.push({pathname:'/newboard', state:this.state.classname})
+
     }
 
   render(){
     return (
         <div className="boardpage" > 
-                <text>
+                <text >
                     {this.props.location.state.classname}
-                    <br/>
-                    "not gonna work"
+                    <text className="content">
+                        {this.props.location.state.board.map(board=> 
+                            <div>
+                                <div>{board.boardtitle}</div>
+                                <div>{board.content}</div>
+                                <div>{board.writer}</div>
+                                <br/>
+                            </div>)}
+                        </text>
                 </text>
+               <button className="newbutton" onClick={this.handleClick}>Hello </button>
         </div>
-
     );
   }
 }
-
- console.log("hi");
-
-
 
 BoardPage.propTypes = {
 }
 BoardPage.defaultProps = {
 }
-
-

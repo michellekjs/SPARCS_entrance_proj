@@ -71,6 +71,7 @@
     font-size:15pt;
     border-style:none;
     box-shadow: gray;
+    background-color:rgb(242, 237, 252);
 
 }
 .homepage .pwd{
@@ -84,5 +85,5 @@
     font-size:15pt;
     border-style:none;
     box-shadow: gray;
-
+    background-color:rgb(242, 237, 252);
 }

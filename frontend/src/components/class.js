@@ -3,6 +3,7 @@ import "./class.css";
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import jwt_decode from "jwt-decode";
 
 
 export default class ClassPage extends Component {
@@ -25,6 +26,16 @@ export default class ClassPage extends Component {
             classcode:"",
             password:"",
         };
+    }
+
+    componentDidMount(){
+        if ( 'token' in localStorage){
+            console.log("hi")
+        }
+        else{
+            console.log("how dare you")
+            this.props.history.push({pathname:'/'})
+        }
     }
 
     handleClassCode1 = e =>{
@@ -115,6 +126,9 @@ export default class ClassPage extends Component {
   render(){
     return (
         <div className="page">
+
+            <div className="box"></div>
+            <div className="maintitle"> Classroom </div>
             <form onSubmit= {this.onSubmit2}>
                 <div className="searchclass"> 
                     <text className="title">Enter Room</text>

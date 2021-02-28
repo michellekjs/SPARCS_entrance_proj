@@ -3,6 +3,7 @@ import "./signup.css";
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import project from "./assets/projectimage.jpg"
 
 console.log("hio");
 export default class SignUp extends Component {
@@ -90,12 +91,21 @@ export default class SignUp extends Component {
     return (
         <div className="signuppage" > 
             <form onSubmit = {this.onSubmit}>
-                <text className="signtext">Sign Up for Project Mate</text>
+                <div className="box"></div>
+                <div className="content">
+                <img className="projectimage" src={project}></img>
+                <text className="signtext">Sign Up for Project Mate!</text>
                 <input className="name" value={this.state.name} onChange={this.handleName} placeholder="enter your name"></input>
                 <input className="id" value={this.state.id} onChange = {this.handleID} placeholder="enter id"></input>
                 <input className="pwd" value={this.state.pwd} onChange = {this.handlePWD} placeholder="enter password"></input>
                 <input className="pwd2" value={this.state.pwd2} onChange={this.handlePWD2} placeholder="enter password"></input>
-                <button type="submit" className="signbutton">회원가입</button>
+                <button type="submit" className="signbutton">Sign in</button>
+                <text className="explain">
+                    # make classrooms<br/><br/>
+                    # enter classroom <br/><br/>
+                    # run a class community page <br/><br/>
+                </text>
+                </div>
             </form>
         </div>
 
