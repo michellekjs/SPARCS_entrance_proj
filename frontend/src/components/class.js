@@ -101,7 +101,7 @@ export default class ClassPage extends Component {
         e.preventDefault();
         console.log("submit2 in action");
         var that = this;
-        axios.get("http://localhost:4000/team/classfind/"+this.state.classcode+"/"+this.state.password)
+        axios.get("http://localhost:8080/team/classfind/"+this.state.classcode+"/"+this.state.password)
         .then(function(res){
             console.log(res);
             if (res.data.toString()=="fail"){ console.log("there is no such room")}
@@ -124,7 +124,7 @@ export default class ClassPage extends Component {
             classdescrip:this.state.classdescrip
         };
         
-        axios.post("http://localhost:4000/team/class", newClass)
+        axios.post("http://localhost:8080/team/class", newClass)
             .then(res=>console.log(res.data))
             .then(console.log("help"))
 
@@ -147,7 +147,7 @@ export default class ClassPage extends Component {
         }
 
         alert("Permission for establishing classroom has been sent!")
-        axios.post("http://localhost:4000/team/confirm",newConfirm)
+        axios.post("http://localhost:8080/team/confirm",newConfirm)
         .then(res => console.log(res.data))
 
 

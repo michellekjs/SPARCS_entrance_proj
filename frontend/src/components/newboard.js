@@ -39,7 +39,7 @@ export default class NewBoard extends Component {
         };
 
 
-    axios.post('http://localhost:4000/team/newboard/'+this.state.classname, newBoard )
+    axios.post('http://localhost:8080/team/newboard/'+this.state.classname, newBoard )
     console.log(this.state.classname);
 
         this.setState({

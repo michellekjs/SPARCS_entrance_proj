@@ -47,11 +47,12 @@ export default class Mate extends Component {
     handleJoin(p){
         var token = localStorage.getItem("token");
         var decoded = jwt_decode(token);
-        axios.get("http://localhost:4000/team/newmember/"+p+"/"+decoded.id+"/"+this.state.classname)
+        axios.get("http://localhost:8080/team/newmember/"+p+"/"+decoded.id+"/"+this.state.classname)
         .then(function(res){
             console.log(res.data.room);
         })
         this.props.history.push({pathname:"/match", state:this.props.location.state})
+        window.history.go(-2);
     }
 
   render(){

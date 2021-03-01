@@ -21,7 +21,7 @@ export default class Admin extends Component {
 
   componentDidMount (){
       var that  = this;
-      axios.get("http://localhost:4000/team/getpermission")
+      axios.get("http://localhost:8080/team/getpermission")
       .then(function(res){
         console.log(res.data.status)
         console.log("stamp")
@@ -34,7 +34,7 @@ export default class Admin extends Component {
   handleButtonClick(p){
       var that = this;
       
-      axios.get("http://localhost:4000/team/changepermission/"+p)
+      axios.get("http://localhost:8080/team/changepermission/"+p)
       .then(function(res){
           console.log(res)
           console.log(res.data.status)

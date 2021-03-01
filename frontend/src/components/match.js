@@ -60,9 +60,6 @@ handleClick2=e=> {
             <div className="classtitle" style={{fontSize:'26pt'}}>
                 {this.props.location.state.classname}
             </div>
-            <button className="memberbutton" onClick={this.handleMemberClick}>
-                    Add as  a member
-            </button>
             <div className='block'>
                 <div className="classdescription">
                     <text className="description" style={{fontSize:'14pt'}}> Class Details</text>

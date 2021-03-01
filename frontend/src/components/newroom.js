@@ -47,7 +47,7 @@ export default class NewRoom extends Component {
         };
 
 
-    axios.post('http://localhost:4000/team/newroom/'+this.props.location.state, newRoom )
+    axios.post('http://localhost:8080/team/newroom/'+this.props.location.state, newRoom )
     console.log(this.props.location.state);
 
         this.setState({
