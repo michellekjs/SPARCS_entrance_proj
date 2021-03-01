@@ -70,10 +70,11 @@ export default class NewBoard extends Component {
   render(){
     return (
         <div className="newboardpage" > 
+        <text className="contenthead">Add new content</text>
         <form onSubmit={this.onSubmit}>
             <input className="title" placeholder="title" value={this.state.boardtitle} onChange={this.handleBoardtitle}></input>
             <input className="content" placeholder="content" value={this.state.content} onChange={this.handleContent}></input>
-            <button type="submit">Save</button>
+            <button className="save" type="submit">Save</button>
         </form>
         </div>
 

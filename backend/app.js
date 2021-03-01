@@ -13,11 +13,9 @@ let Confirm  = require('./confirm');
 let Room = require('./room')
 app.use(cors());
 app.use(bodyParser.json());
-mongoose.connect('mongodb://localhost:27017/team', { useNewUrlParser: true ,useUnifiedTopolgy:true});
+mongoose.connect('mongodb+srv://hi:hi@cluster0.lkxev.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/team', { useNewUrlParser: true ,useUnifiedTopolgy:true});
 const connection = mongoose.connection;
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
+
 
 
 teamRoutes.route('/users').post(function(req,res,next){

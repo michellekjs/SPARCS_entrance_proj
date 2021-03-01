@@ -1,0 +1,43 @@
+.newboardpage .title{
+    position:absolute;
+    top:100px;
+    left:300px;
+    border-style:none;
+background-color: rgb(240, 240, 240);
+border-radius: 5px;
+width:300px;
+height:40px;
+
+}
+
+.newboardpage .content{
+    position:absolute;
+    top:150px;
+    left:300px;
+    border-style:none;
+background-color: rgb(240, 240, 240);
+border-radius: 5px;
+width:300px;
+height:40px;
+
+}
+
+.newboardpage .save{
+    position: absolute;
+    top:230px;
+    left:500px;
+    border-style:none;
+    background-color: rgb(109, 94, 126);
+    border-radius: 5px;
+    width:100px;
+    height:40px;
+    color:white;
+}
+
+.contenthead{
+    position:absolute;
+    left:300px;
+    top:30px;
+    font-size:20pt;
+    font-weight:bold;
+}
