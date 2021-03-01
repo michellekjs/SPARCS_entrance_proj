@@ -7,7 +7,8 @@ let Class = new Schema1({
     classdescrip: { type: String, required: true },
     classmembers : {type:Array},
     pairs:{type:Array},
-    board:{type:Array}
+    board:{type:Array},
+    room:{type:Array}
 });
 
 module.exports = mongoose.model('Class',Class);

@@ -8,6 +8,11 @@
     color:rgb(47, 40, 61)
 }
 
+.box .permissiontext {
+    position:absolute;
+    right: 60px;
+    top:30px;
+}
 .searchclass{
     position:absolute;
     top:250px;
@@ -19,7 +24,7 @@
     width:80%;
     left:10%;
     right:10%;
-    background-color:rgb(140, 125, 156)
+    background-color:rgb(233, 233, 233)
 }
 
 .searchclass .title{
@@ -57,8 +62,8 @@
     height:40px;
     border-style:none;
     border-radius:10px;
-    background-color:rgb(47, 40, 61);
-    color:white;
+    background-color:rgb(196, 190, 209);
+    color:rgb(47, 40, 61)
 }
 
 .makeclass{
@@ -110,7 +115,17 @@
     height:40px;
     border-style:none;
     border-radius:10px;    
-    background-color:rgb(47, 40, 61);
-    color:white;
+    background-color:rgb(196, 190, 209);
+    color:rgb(47, 40, 61)
 }
 
+.permission{
+    position:absolute;
+    left:1220px;
+    top:40px;
+    border-style:none;
+    border-radius:10px;
+    background-color:rgb(86, 61, 110);
+    color:white;
+    height:40px;
+}

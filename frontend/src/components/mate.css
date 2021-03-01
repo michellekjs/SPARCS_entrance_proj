@@ -1,0 +1,62 @@
+.matepage{
+    position: absolute;
+    left:300px;
+}
+
+.matepage .title {
+    position:absolute;
+    font-weight:bold;
+    font-size:26pt;
+}
+
+.matepage .content{
+    position: relative;
+    top:100px;
+}
+
+.matepage .matetitle{
+    position:absolute;
+    left:40px;
+    margin-top:30px;
+    width:300px;
+    font-size:18px;
+}
+
+.matepage .matecontent{
+    position:absolute;
+    left: 40px;
+    margin-top:70px;
+    width:300px;
+
+}
+
+.matepage .matewriter{
+    position:absolute;
+   left:40px;
+   margin-top:70px;
+   width:200px;
+}
+
+.matepage .matebutton{
+    border-style:none;
+    border-radius:10px;
+    background-color:rgb(247, 247, 247)
+}
+
+.matepage .joinbutton{
+    position:absolute;
+    left:800px;
+    width:150px;
+    border-style:none;
+    border-radius:5px; 
+    height:40px;
+    background-color:rgb(255, 242, 213)
+}
+
+.matepage .currentmembers{
+    position:absolute;
+    left:40px;
+    margin-top:70px;
+    width:300px;
+    
+}

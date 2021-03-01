@@ -24,7 +24,6 @@ export default class Admin extends Component {
       axios.get("http://localhost:4000/team/getpermission")
       .then(function(res){
         console.log(res.data.status)
-
         console.log("stamp")
         that.setState({list: res.data});
         console.log(that.state.list)
@@ -34,43 +33,38 @@ export default class Admin extends Component {
 
   handleButtonClick(p){
       var that = this;
+      
       axios.get("http://localhost:4000/team/changepermission/"+p)
       .then(function(res){
           console.log(res)
           console.log(res.data.status)
           console.log("where");
-          if (res.data.status == "done"){
-            that.setState({'color':'hidden'});
-          }
-          else{
-            that.setState({'color':'visible'});
-          }
       })
+      window.location.replace("/admin")
      
   }
 
-
+  
   render() {
     return (
         <div className="adminpage">
+          <div className="admintitle">Admin Page</div>
+          <div style={{marginTop:'100px'}}></div>
             {this.state.list.map(result=> 
                 <div>
                     <br/>
-                    <div className='contenttitle'>{result.username}</div>
-                    <div className='contentwriter' >{result.status}</div>
-                    <button className = "permissionbutton" onClick={() => this.handleButtonClick(result.username)} style={{'visibility':this.state.color}}> Change Permission </button>
+                    <a style={{ marginLeft: '300px' }}> {result.username} </a>
+                    <a style={{ marginLeft: '100px' }}> {result.status} </a>  
+                    <a style={{ marginLeft: '300px' }}><button className = "permissionbutton" onClick={() => this.handleButtonClick(result.username)} style={{'visibility':this.state}}> Change Permission </button></a>
                     <br/>
-                   
-                </div>)
-                }
-        </div>
-
+                  </div>
+            )}
+            </div>
     );
   }
 }
+
 Admin.propTypes = {
 }
 Admin.defaultProps = {
 }
-
-

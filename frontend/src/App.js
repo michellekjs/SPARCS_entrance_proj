@@ -9,6 +9,13 @@ import Match from "./components/match.js"
 import BoardPage from "./components/board.js"
 import NewBoard from "./components/newboard.js"
 import Admin from "./components/admin.js"
+import Mate from "./components/mate.js"
+import NewRoom from "./components/newroom.js"
+
+function clear(){
+  localStorage.clear();
+}
+
 
 function App() {
   return (
@@ -32,8 +39,18 @@ function App() {
       <Route exact path = "/boardpage" component={BoardPage}/>
       <Route exact path="/newboard" component={NewBoard}/>
       <Route exact path = "/admin" component = {Admin}/>
-    </Router>
+      <Route exact path ="/mate" component={Mate}/>
+      <Route exact path ="/newroom" component={NewRoom}/>
+
+      <div>
+      <Link to="/"><button className="Logout" onClick={clear}>Logout</button></Link>
     </div>
+    </Router>
+
+   
+
+    </div>
+  
   );
 }
 

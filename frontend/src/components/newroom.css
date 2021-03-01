@@ -1,0 +1,55 @@
+.newroompage .text{
+position: absolute;
+top:30px;
+left:300px;
+font-size:20pt;
+font-weight:bold;
+}
+
+.newroompage .roomname{
+position:absolute;
+left:300px;
+top:100px;
+border-style:none;
+background-color: rgb(240, 240, 240);
+border-radius: 5px;
+width:300px;
+height:40px;
+}
+
+.newroompage .explain{
+    position:absolute;
+left:300px;
+top: 150px;
+border-style:none;
+background-color: rgb(240, 240, 240);
+border-radius: 5px;
+width:300px;
+height:40px;
+}
+
+
+.newroompage .max{
+    position:absolute;
+left:300px;
+top:200px;
+border-style:none;
+background-color: rgb(240, 240, 240);
+border-radius: 5px;
+width:300px;
+height:40px;
+
+}
+
+.newroompage .button{
+    position:absolute;
+    left:500px;
+    top:300px;
+    border-style:none;
+background-color: rgb(106, 73, 145);
+border-radius: 5px;
+width:100px;
+height:30px;
+color:white;
+
+}

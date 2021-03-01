@@ -1,0 +1,17 @@
+.permissionbutton{
+    border-radius:5px;
+    border-style:none;
+    height:40px; 
+}
+
+.oneobject{
+    width:1000px;
+}
+
+.admintitle{
+    position: absolute;
+    top:30px;
+    left:300px;
+    font-size:20pt;
+    font-weight:bold;
+}

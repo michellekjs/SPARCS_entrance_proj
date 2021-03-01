@@ -3,19 +3,43 @@
     left:300px;
 }
 
+.boardpage .title {
+    position:absolute;
+    font-weight:bold;
+    font-size:26pt;
+}
 
 .boardpage .content{
     position: relative;
-    top:50px;
+    top:100px;
 }
 
  .newbutton{
     position:absolute;
-    left:1000px;
-    top:50px;
+    top:20px;
+    left:920px;
     border-radius: 10px;
     border-style:none;
-    background-color:bisque;
+    background-color:rgb(132, 108, 151);
     width:100px;
-    height:40px;
+    height:30px;
+    color:white;
+}
+
+.boardpage .boardtitle{
+    position:absolute;
+    width:300px;
+}
+
+.boardpage .boardcontent{
+    position:absolute;
+    left: 400px;
+    width:300px;
+
+}
+
+.boardpage .boardwriter{
+    position:absolute;
+   left:1000px;
+   width:100px;
 }

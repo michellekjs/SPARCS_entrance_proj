@@ -47,6 +47,8 @@ export default class NewBoard extends Component {
             boardtitle:"",
             content:""
         })
+
+        this.props.history.push({pathname:"/mate"})
     }
 
     handleBoardtitle = e => {

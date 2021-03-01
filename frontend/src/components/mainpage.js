@@ -19,7 +19,9 @@ export default class MainPage extends Component {
         pwd:""
       };
   }
-
+componentDidMount(){
+  localStorage.clear()
+}
 onSubmit = e =>{
 
   e.preventDefault();
@@ -34,6 +36,7 @@ onSubmit = e =>{
   .then(res=>{
     if (res.data=="fail"){
       console.log('try again');
+      alert("Try Again. No user data");
     }
     else{
       console.log(res.data)

@@ -17,14 +17,18 @@ export default class Match extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state={
-            classname:""
+            classname:"",
+            classmembers:[],
+            
         }
     }
 
 componentDidMount(){
-    this.state.classname=this.props.location.state;
+    this.state.classname=this.props.location.state.classname;
+    console.log(this.props.location.state)
         if ( 'token' in localStorage){
             console.log("hi")
+
         }
         else{
             console.log("how dare you")
@@ -32,16 +36,21 @@ componentDidMount(){
         }
 }
 
-handleMemberClick = e =>{
-  var token= localStorage.getItem('token')
-  console.log(token);
-    }
+
+    
     //add as a member using token information
 
 
 handleClick=e=> {
     var that = this;
-    this.props.history.push({pathname:'/boardpage',state:this.state.classname})
+    this.props.history.push({pathname:'/boardpage',state:this.props.location.state})
+}
+
+handleClick2=e=> {
+    var that = this;
+    this.props.history.push({pathname:'/mate',state:this.props.location.state})
+    console.log("?")
+    console.log(this.state.classname);
 }
 
 
@@ -62,8 +71,8 @@ handleClick=e=> {
                 </div>
                 <div className="members">
                     <text className="list" style={{fontSize:'14pt'}}> 
-                    List of Members <br/>
-                    {this.props.location.state.classmembers}
+                    <br/>
+                    {this.state.classmembers}
                     </text>
                    
                 </div>
@@ -73,19 +82,35 @@ handleClick=e=> {
                 <text className="boardtitle">Board</text>
                 
                 <button className="buttonboard" onClick={this.handleClick}>  
-                move board page
+                + more
                 </button>
                 <br/>
                 
                 {this.props.location.state.board.slice(0,5).map(board=> 
                 <div>
                     <br/>
-                    <div className='contenttitle'>{board.boardtitle}</div>
-                    <div className='contentwriter' >{board.writer}</div>
+                    <text className='contenttitle'>{board.boardtitle}</text>
+                    <text className='contentwriter' >{board.writer}</text>
                     <br/>
                 </div>)
                 }
                 
+            </div>
+
+
+            <div className="mate">
+                <text className="matetitle">Project Mate</text>
+                <button className="buttonmate" onClick={this.handleClick2}>  
+                + more
+                </button>
+                <br/>
+                {this.props.location.state.room.slice(0,5).map(room=> 
+                <div>
+                    <br/>
+                    <text className='roomtitle'>{room.roomname}</text>
+                    <text className="roommaker">{room.establisher}</text>
+                </div>
+                )}
             </div>
             
         </div>

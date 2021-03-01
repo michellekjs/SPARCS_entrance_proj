@@ -45,11 +45,11 @@
 
 .match .board .buttonboard{
     position: absolute;
-    left:800px; 
+    left:200px; 
     border-style:none;
     border-radius: 10px;
-    height:40px;
-    width:200px;
+    width:100px;
+    background-color:white;
 }
 
 .match .block{
@@ -63,3 +63,47 @@
     padding:50px;
 }
 
+.match .contenttitle{
+    position:absolute;
+    width:100px;
+}
+
+.match .contentwriter{
+
+    position:absolute;
+    left: 270px;
+    width:100px
+}
+.match .mate{
+    position:absolute;
+    left:900px;
+    top: 400px;
+    
+}
+
+.match .matetitle{
+    position:absolute;
+    width:100px;
+    font-weight:bold;
+}
+
+.match .buttonmate{
+    position: absolute;
+    left:300px; 
+    border-style:none;
+    border-radius: 10px;
+    width:100px;
+    background-color:white;
+}
+
+.match .roomttitle{
+    position:absolute;
+    width:100px;
+}
+
+.match .roommaker{
+
+    position:absolute;
+    left: 350px;
+    width:100px
+}

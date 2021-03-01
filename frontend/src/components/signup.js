@@ -55,34 +55,48 @@ export default class SignUp extends Component {
 
     checkPWD =e =>{
         e.preventDefault();
-        if (this.state.pwd == this.state.pwd2){
-            alert("비밀번호가 일치합니다.")
-        }
-        else{
-            alert("비밀번호가 일치하지 않습니다.")
-        }
+        console.log(this.state.pwd);
+        console.log(this.state.pwd2);
+
     }
 
 
     onSubmit(e) {
         e.preventDefault();
         console.log("submit successful");
+        console.log(this.state.pwd);
+        console.log(this.state.pwd2);
 
-        const newUser= {
-            name:this.state.name,
-            id:this.state.id,
-            pwd:this.state.pwd
-        };
-        console.log(this.state.id);
-        axios.post('http://localhost:4000/team/users', newUser)
-            .then(res => console.log(res.data));
+        if (this.state.pwd == this.state.pwd2){
 
-        this.setState({
-                name:"",
-                id:"",
-                pwd:"",
-                pwd2:""
-        })
+            alert("비밀번호가 일치합니다.")
+
+            const newUser= {
+                name:this.state.name,
+                id:this.state.id,
+                pwd:this.state.pwd
+            };
+            console.log("mark");
+            console.log(this.state.id);
+    
+            axios.post('http://localhost:4000/team/users', newUser)
+                .then(res => console.log(res.data));
+    
+            this.setState({
+                    name:"",
+                    id:"",
+                    pwd:"",
+                    pwd2:""
+            })
+            this.props.history.push("/")
+        }
+        
+        else{
+            alert("비밀번호가 일치하지 않습니다. 다시 입력하세요!")
+        }
+
+        
+
     }
     
 

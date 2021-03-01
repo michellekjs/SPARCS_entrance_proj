@@ -28,9 +28,12 @@ export default class ClassPage extends Component {
             classcode:"",
             password:"",
             visibility1:"",
-            visibility2:""
+            visibility2:"",
+            visible:"",
+            permission:""
         };
     }
+
 
     componentDidMount(){
         if ( 'token' in localStorage){
@@ -39,10 +42,11 @@ export default class ClassPage extends Component {
           console.log(decoded.permission);
 
             if (decoded.permission == "student"){
-                this.setState({visibility1:"visible", visibility2:"hidden"})
+                this.setState({visibility1:"visible", visibility2:"hidden",visible:"visible",permission:"student"})
+                
             }
             else{
-                this.setState({visibility1:"visible", visibility2:"visible"})
+                this.setState({visibility1:"visible", visibility2:"visible", visible:"hidden",permission:"professor"})
             }
         }
         else{
@@ -142,8 +146,10 @@ export default class ClassPage extends Component {
             status:"waiting"
         }
 
+        alert("Permission for establishing classroom has been sent!")
         axios.post("http://localhost:4000/team/confirm",newConfirm)
         .then(res => console.log(res.data))
+
 
     }
 
@@ -155,8 +161,11 @@ export default class ClassPage extends Component {
     return (
         <div className="page">
 
-            <div className="box"></div>
+            <div className="box">
+                <div className="permissiontext"> Permission : {this.state.permission}</div>
+                </div>
             <div className="maintitle"> Classroom </div>
+            
             <form onSubmit= {this.onSubmit2} >
                 <div className="searchclass" style={{'visibility': this.state.visibility1}}> 
                     <text className="title">Enter Room</text>
@@ -165,7 +174,7 @@ export default class ClassPage extends Component {
                     <button className="searchbutton" >  Search </button>
                 </div>
             </form>
-            <button className="permission" onClick={this.onButtonClick}>Get Permission for establishing rooms</button>
+            <button className="permission" onClick={this.onButtonClick} style={{'visibility':this.state.visible}}>Get Permission for establishing rooms</button>
             {/**/}
 
             <div className="makeclass" style={{'visibility': this.state.visibility2}}>

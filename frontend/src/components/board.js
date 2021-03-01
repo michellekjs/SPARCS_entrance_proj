@@ -17,6 +17,8 @@ export default class BoardPage extends Component {
     
     componentDidMount(){
         this.state.classname=this.props.location.state;
+        console.log("stamp2")
+        
         console.log(this.state.classname);
 
         if ( 'token' in localStorage){
@@ -32,26 +34,28 @@ export default class BoardPage extends Component {
     handleClick = e =>{
         e.preventDefault();
         var that = this;
-        this.props.history.push({pathname:'/newboard', state:this.state.classname})
+        this.props.history.push({pathname:'/newboard', state:{'classname':this.state.classname}})
 
     }
 
   render(){
     return (
         <div className="boardpage" > 
-                <text >
+                <text className="title" >
                     {this.props.location.state.classname}
+                </text>
+
                     <text className="content">
                         {this.props.location.state.board.map(board=> 
-                            <div>
-                                <div>{board.boardtitle}</div>
-                                <div>{board.content}</div>
-                                <div>{board.writer}</div>
+                            <div >
+                                <text className="boardtitle">{board.boardtitle}</text><br/>
+                                <text  className="boardcontent">{board.content}</text>
+                                <text className="boardwriter">{board.writer}</text>
                                 <br/>
                             </div>)}
-                        </text>
-                </text>
-               <button className="newbutton" onClick={this.handleClick}>Hello </button>
+                    </text>
+
+               <button className="newbutton" onClick={this.handleClick}>+Add</button>
         </div>
     );
   }
