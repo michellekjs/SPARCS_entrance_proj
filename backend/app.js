@@ -13,7 +13,7 @@ let Confirm  = require('./confirm');
 let Room = require('./room')
 app.use(cors());
 app.use(bodyParser.json());
-mongoose.connect('mongodb+srv://hi:hi@cluster0.lkxev.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/team', { useNewUrlParser: true ,useUnifiedTopolgy:true});
+mongoose.connect('mongodb+srv://hi:hi@cluster0.lkxev.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/', { useNewUrlParser: true ,useUnifiedTopolgy:true});
 const connection = mongoose.connection;
 
 
@@ -194,7 +194,7 @@ teamRoutes.route('/permissionstatus').post(function(req,res){
 
 
 
-app.use('/team', teamRoutes);
+app.use('/myFirstDatabase', teamRoutes);
 app.listen(PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
