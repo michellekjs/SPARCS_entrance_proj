@@ -25,6 +25,7 @@ export default class NewBoard extends Component {
 
     onSubmit(e) {
         this.state.classname=this.props.location.state.classname;
+        console.log(this.state.classname)
         e.preventDefault();
         console.log("submit successful");
 
@@ -47,8 +48,8 @@ export default class NewBoard extends Component {
             boardtitle:"",
             content:""
         })
+        this.props.history.push({pathname:"/match", state:this.props.location.state})
 
-        this.props.history.push({pathname:"/mate"})
     }
 
     handleBoardtitle = e => {
@@ -70,7 +71,7 @@ export default class NewBoard extends Component {
   render(){
     return (
         <div className="newboardpage" > 
-        <text className="contenthead">Add new content</text>
+        <text className="content2">Add new content</text>
         <form onSubmit={this.onSubmit}>
             <input className="title" placeholder="title" value={this.state.boardtitle} onChange={this.handleBoardtitle}></input>
             <input className="content" placeholder="content" value={this.state.content} onChange={this.handleContent}></input>

@@ -57,7 +57,6 @@ export default class NewRoom extends Component {
             members:"",
             classname:""
         })
-    
     }
 
     handleRoomname=e=>{

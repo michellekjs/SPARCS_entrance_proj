@@ -52,7 +52,6 @@ export default class Mate extends Component {
             console.log(res.data.room);
         })
         this.props.history.push({pathname:"/match", state:this.props.location.state})
-        window.history.go(-2);
     }
 
   render(){

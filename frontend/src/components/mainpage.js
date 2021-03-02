@@ -32,7 +32,7 @@ onSubmit = e =>{
     pwd:this.state.pwd
   };
 
-  axios.post('http://localhost:8080/myFirstDatabase/login',UserLogin)
+  axios.post('http://localhost:8080/team/login',UserLogin)
   .then(res=>{
     if (res.data=="fail"){
       console.log('try again');

@@ -11,7 +11,7 @@ export default class BoardPage extends Component {
     constructor(props){
         super(props);
         this.state={
-            classname:""
+            classname:"",
         }
     }
     
@@ -34,7 +34,7 @@ export default class BoardPage extends Component {
     handleClick = e =>{
         e.preventDefault();
         var that = this;
-        this.props.history.push({pathname:'/newboard', state:{'classname':this.state.classname}})
+        this.props.history.push({pathname:'/newboard', state:this.state.classname})
 
     }
 
@@ -48,10 +48,11 @@ export default class BoardPage extends Component {
                     <text className="content">
                         {this.props.location.state.board.map(board=> 
                             <div >
-                                <text className="boardtitle">{board.boardtitle}</text><br/>
+                                <text className="boardtitle">{board.boardtitle}</text>
                                 <text  className="boardcontent">{board.content}</text>
                                 <text className="boardwriter">{board.writer}</text>
                                 <br/>
+                                <br/><br/>
                             </div>)}
                     </text>
 

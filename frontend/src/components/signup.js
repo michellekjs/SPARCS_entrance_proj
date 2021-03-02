@@ -79,7 +79,7 @@ export default class SignUp extends Component {
             console.log("mark");
             console.log(this.state.id);
     
-            axios.post('http://ssal.sparcs.org:8080/myFirstDatabase/users', newUser)
+            axios.post('http://localhost:8080/team/users', newUser)
                 .then(res => console.log(res.data));
     
             this.setState({
